@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .task-card {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .task-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .task-description {
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-group button {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-edit {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+
+        /* This design fot tick button */
+
+        .task-card {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            /* Ensure relative positioning for absolute positioning of the button */
+        }
+
+        .task-actions {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .task-actions button {
+            border: 1px solid #b5dad9;
+            margin-left: 5px;
+            width: 30px;
+            /* Fixed width */
+            height: 30px;
+            /* Fixed height */
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="title">
+            <h2 class="text-center mt-5">My To Do List</h2>
+        </div>
+
+
+
+        <div class="createTodoList">
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Task Title</label>
+                    <input type="text" class="form-control" id="taskTitle" aria-describedby="taskTitle"
+                        placeholder="Enter task Title">
+                    <small id="taskTitleHelp" class="form-text text-muted">Enter Your Task Name.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Task Description</label>
+                    <textarea class="form-control" id="taskDescription" rows="5"></textarea>
+                </div>
+
+
+                <button type="submit" id="taskSubmitButton" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+
+
+        <div class="row mt-5" id="taskCardList">
+
+
+            <!-- <div class="col-md-4">
+                <div class="task-card">
+                    <div class="task-actions">
+                        <button id="toggleButton" class="btn btn-sm btn-success toggleButtonClass" data-toggle="popover"
+                            data-placement="top" title="Mark as Done"
+                            data-content="Click to mark this task as done">&#10003;</button>
+                    </div>
+                    <div class="task-title">Task Title</div>
+                    <div class="task-description">Task Description Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit.</div>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-edit" >Edit</button>
+                        <button class="btn btn-sm btn-delete">Delete</button>
+                    </div>
+                </div>
+            </div> -->
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Edit Todo List Item Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Todo List Item</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="editTitle">Title</label>
+            <input type="text" class="form-control" id="editTitle">
+          </div>
+          <div class="form-group">
+            <label for="editDescription">Description</label>
+            <textarea class="form-control" id="editDescription"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
+          <input type="button" id="indexForDemo" class="btn btn-primary d-none">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="todolist.js"></script>
+</body>
+
+</html>
